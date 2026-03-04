@@ -1,0 +1,35 @@
+[project]
+name = "2d-gaussian-splatting"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "torch==2.10.0",
+    "torchvision==0.25.0",
+    "diff_surfel_rasterization",
+    "simple_knn",
+    "plyfile>=1.1.3",
+    "opencv-python>=4.13.0.92",
+    "matplotlib>=3.10.8",
+    "tqdm>=4.67.3",
+]
+
+[tool.uv.workspace]
+members = ["wrappers/*"]
+
+[tool.uv.sources]
+diff_surfel_rasterization = { workspace = true }
+simple_knn = { workspace = true }
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+default = true
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
